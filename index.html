@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumtahin Jannat Khan | Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #FCE4EC;
+            --secondary-bg: #FFF0F5;
+            --text-color: #333333;
+            --heading-color: #E91E63;
+            --accent-color: #FF69B4;
+            --hover-color: #FFC0CB;
+            --shadow-color: rgba(233, 30, 99, 0.1);
+            --dark-bg: #2D2D2D;
+            --dark-secondary: #3D3D3D;
+            --dark-text: #F0F0F0;
+            --dark-heading: #FF80AB;
+            --dark-accent: #F48FB1;
+        }
+
+        .dark-mode {
+            --primary-bg: #2D2D2D;
+            --secondary-bg: #3D3D3D;
+            --text-color: #F0F0F0;
+            --heading-color: #FF80AB;
+            --accent-color: #F48FB1;
+            --hover-color: #FF80AB;
+            --shadow-color: rgba(255, 128, 171, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--primary-bg);
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--heading-color);
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .small-text {
+            font-size: 14px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: transparent;
+            transition: all 0.3s ease;
+            padding: 15px 0;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--primary-bg);
+            box-shadow: 0 5px 15px var(--shadow-color);
+            padding: 10px 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--heading-color) !important;
+        }
+
+        .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-color) !important;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background-color: var(--primary-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero-tagline {
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--secondary-bg);
+        }
+
+        .profile-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .about-card {
+            background-color: var(--primary-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .about-card i {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--primary-bg);
+        }
+
+        .skill-card {
+            background-color: var(--secondary-bg);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            transition: all 0.3s ease;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .skill-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .skill-icon i {
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        .skill-icon:hover {
+            transform: scale(1.1);
+            background-color: var(--accent-color);
+        }
+
+        .skill-icon:hover i {
+            color: white;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background-color: var(--secondary-bg);
+        }
+
+        .portfolio-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            background-color: var(--primary-bg);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .portfolio-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-content {
+            padding: 20px;
+        }
+
+        .portfolio-links a {
+            color: var(--accent-color);
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .portfolio-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: var(--primary-bg);
+        }
+
+        .contact-form {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+        }
+
+        .form-control {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 3px var(--hover-color);
+            background-color: white;
+        }
+
+        .contact-info {
+            background-color: var(--secondary-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px var(--shadow-color);
+            height: 100%;
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Social Media */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 22px;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background-color: var(--accent-color);
+        }
+
+        .social-icon:hover i {
+            color: white;
+        }
+
+        /* Button Styles */
+        .btn-custom {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .btn-custom:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            color: white;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 991px) {
+            h1 {
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            h3 {
+                font-size: 22px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .profile-img {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            section {
+                padding: 50px 0;
+            }
+            #hero {
+                height: auto;
+                padding: 100px 0;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .about-card, .skill-card, .portfolio-item, .contact-form, .contact-info {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#hero">Mumtahin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1>Mumtahin Jannat Khan</h1>
+                    <p class="hero-tagline">Aspiring Computer Science Engineer | Passionate About Coding & Design</p>
+                    <a href="#portfolio" class="btn btn-custom">View My Work</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <img src="/mumtahin.jpeg" alt="Mumtahin Jannat Khan" class="profile-img fade-in">
+                </div>
+                <div class="col-lg-8">
+                    <div class="about-card fade-in">
+                        <h3>Hello, I'm Mumtahin</h3>
+                        <p>I am an aspiring Computer Science Engineer with a passion for creating beautiful and functional web experiences. Currently pursuing my BSc in Computer Science & Engineering at the University of Asia Pacific, I am dedicated to expanding my knowledge and skills in the tech world.</p>
+                        <p>My journey in computer science has equipped me with problem-solving abilities and a creative approach to technology challenges. I believe in continuous learning and staying updated with the latest industry trends.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="about-card text-center fade-in">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <h3>Education</h3>
+                        <p>BSc in Computer Science & Engineering</p>
+                        <p class="small-text">University of Asia Pacific</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="about-card text-center fade-in">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <h3>Location</h3>
+                        <p>Dhaka, Bangladesh</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="about-card text-center fade-in">
+                        <i class="bi bi-envelope-fill"></i>
+                        <h3>Contact</h3>
+                        <p>22201249@gmail.com</p>
+                        <p>01851698519</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-card fade-in">
+                        <h3 class="mb-4">Technical Skills</h3>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-code-slash"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>Web Development</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-palette"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>UI/UX Design</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-puzzle"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>Problem Solving</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-laptop"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>Responsive Design</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <div class="skill-card fade-in">
+                        <h3 class="mb-4">Tools & Technologies</h3>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-filetype-html"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>HTML & CSS</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-bootstrap"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>Bootstrap</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-filetype-js"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>JavaScript</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <div class="skill-icon">
+                                        <i class="bi bi-vector-pen"></i>
+                                    </div>
+                                    <div class="ms-3">
+                                        <h4>Figma</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="portfolio-item fade-in">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Project 1" class="portfolio-img">
+                        <div class="portfolio-content">
+                            <h3>E-commerce Website</h3>
+                            <p>A responsive e-commerce website with product filtering and cart functionality.</p>
+                            <div class="portfolio-links">
+                                <a href="#" target="_blank"><i class="bi bi-link-45deg"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item fade-in">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Project 2" class="portfolio-img">
+                        <div class="portfolio-content">
+                            <h3>Portfolio Template</h3>
+                            <p>A customizable portfolio template for creative professionals.</p>
+                            <div class="portfolio-links">
+                                <a href="#" target="_blank"><i class="bi bi-link-45deg"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="portfolio-item fade-in">
+                        <img src="/placeholder.svg?height=200&width=400" alt="Project 3" class="portfolio-img">
+                        <div class="portfolio-content">
+                            <h3>Task Manager App</h3>
+                            <p>A simple task manager application with local storage functionality.</p>
+                            <div class="portfolio-links">
+                                <a href="#" target="_blank"><i class="bi bi-link-45deg"></i> Live Demo</a>
+                                <a href="#" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section id="social" style="padding: 40px 0; background-color: var(--primary-bg);">
+        <div class="container text-center">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="social-links">
+                <a href="mailto:22201249@gmail.com" class="social-icon">
+                    <i class="bi bi-envelope"></i>
+                </a>
+                <a href="tel:01851698519" class="social-icon">
+                    <i class="bi bi-telephone"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="bi bi-github"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="contact-form fade-in">
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-custom w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="contact-info fade-in">
+                        <h3>Contact Information</h3>
+                        <p>Feel free to reach out to me for any inquiries or collaboration opportunities.</p>
+                        <div class="mt-4">
+                            <p><i class="bi bi-envelope-fill"></i> 22201249@gmail.com</p>
+                            <p><i class="bi bi-telephone-fill"></i> 01851698519</p>
+                            <p><i class="bi bi-geo-alt-fill"></i> Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Mumtahin Jannat Khan. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle" id="darkModeToggle">
+        <i class="bi bi-moon-fill"></i>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="bi bi-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                // Close mobile menu when clicking a link
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                if (navbarCollapse.classList.contains('show')) {
+                    navbarToggler.click();
+                }
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('active');
+            } else {
+                scrollTopBtn.classList.remove('active');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const icon = darkModeToggle.querySelector('i');
+        
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('bi-moon-fill');
+                icon.classList.add('bi-sun-fill');
+            } else {
+                icon.classList.remove('bi-sun-fill');
+                icon.classList.add('bi-moon-fill');
+            }
+        });
+        
+        // Form Validation
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name.trim() === '' || email.trim() === '' || message.trim() === '') {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Form submission would go here
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
+        
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        function checkFade() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+        
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
